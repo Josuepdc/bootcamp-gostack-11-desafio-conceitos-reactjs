@@ -5,6 +5,20 @@ export default ({onAdd}) => {
     const urlRef = useRef();
     const techsRef = useRef();
 
+    function onClick() {
+        const repository = { 
+            title: titleRef.current.value, 
+            url: urlRef.current.value, 
+            techs: techsRef.current.value.split('\n') 
+        };
+
+        onAdd(repository);
+
+        titleRef.current.value = '';
+        urlRef.current.value = '';
+        techsRef.current.value = '';
+    } 
+
     return <>
         <h2>Adicionar Repositório</h2>
 
@@ -13,8 +27,6 @@ export default ({onAdd}) => {
         <br/>
         <textarea ref={techsRef} placeholder="Tecnologias (um por linha)" />
         <br/>
-        <button onClick={() => onAdd({ title: titleRef.current.value, url: urlRef.current.value, techs: techsRef.current.value.split('\n') })}>
-            Adicionar
-        </button>
+        <button onClick={onClick}>Adicionar</button>
     </>
 };
