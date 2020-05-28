@@ -23,6 +23,10 @@ function App() {
 
   return (
     <div>
+      <h1>Portfólio de Repositórios</h1>
+
+      <h2>Lista</h2>
+
       <ul data-testid="repository-list">
         {repositories.map(repo => (
           <RepositoryListItem key={repo.id} 
