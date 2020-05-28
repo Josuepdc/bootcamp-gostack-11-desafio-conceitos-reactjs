@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import "./styles.css";
 import api from "services/api";
 import RepositoryListItem from "components/RepositoryListItem";
+import AddRepositoryForm from "components/AddRepositoryForm";
 
 function App() {
   const [repositories, setRepositories] = useState([]);
@@ -13,7 +14,8 @@ function App() {
     });
   }, []);
 
-  async function handleAddRepository() {
+  async function handleAddRepository(repository) {
+    console.log(repository)
     // TODO
   }
 
@@ -35,8 +37,8 @@ function App() {
                               </RepositoryListItem>
         ))}
       </ul>
-
-      <button onClick={handleAddRepository}>Adicionar</button>
+      
+      <AddRepositoryForm onAdd={handleAddRepository} />
     </div>
   );
 }
